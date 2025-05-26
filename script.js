@@ -1,3 +1,13 @@
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
+}
+
 const myLibrary = [
   new Book("A Clockwork Orange", "Anthony Burgees", 240, false),
   new Book("Brave New World", "Aldous Huxley", 200, true),
@@ -20,16 +30,6 @@ const formPages = document.querySelector("#pages");
 const formRead = document.querySelector("#isRead");
 
 displayBooks();
-
-function Book(title, author, pages, isRead) {
-  if (!new.target) throw new Error("Constructor called without new operator.");
-
-  this.id = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
-}
 
 function addBookToLibrary(title, author, pages, isRead) {
   let newBook = new Book(title, author, pages, isRead);
